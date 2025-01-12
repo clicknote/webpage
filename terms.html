@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Click Note - Terms</title>
+  <!-- Fuentes Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link 
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Poppins:wght@400;600&display=swap" 
+    rel="stylesheet"
+  >
+  <style>
+    :root {
+      --primary-color: #aa3bff;
+      --secondary-color: #f7f7f7;
+      --text-color: #333333;
+      --font-poppins: 'Poppins', sans-serif;
+      --font-plex: 'IBM Plex Mono', monospace;
+      --transition-speed: 0.4s;
+    }
+    * {
+      margin: 0; 
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: var(--font-poppins);
+      background-color: var(--secondary-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+    header, nav, main, footer {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+    }
+    a {
+      text-decoration: none;
+      color: var(--primary-color);
+      transition: color 0.3s;
+    }
+    a:hover {
+      color: #892de0;
+    }
+    /* ENCABEZADO */
+    header {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    padding: 1em 0;
+    width: 100%; /* Ocupa todo el ancho */
+    max-width: 100%; /* Evita restricciones adicionales */
+    margin: 0 auto; /* Asegúrate de que esté centrado */
+    }
+
+    .branding {
+    display: flex;
+    align-items: center; /* Alinea logotipo y texto verticalmente */
+    gap: 0.5em; /* Espaciado entre logotipo y texto */
+    }
+
+    .branding img {
+    width: 40px; /* Tamaño del logotipo */
+    margin-right: 0.5em; /* Espaciado entre imagen y texto */
+    }
+
+    .branding .brand-text {
+    font-size: 1.4em;
+    font-weight: 600;
+    font-family: 'IBM Plex Mono', monospace;
+    color: #333333; /* Color del texto */
+    line-height: 1; /* Ajusta la altura de línea */
+    display: inline-block; /* Mantiene el texto en una sola línea */
+    white-space: nowrap; /* Evita divisiones de palabras */
+    }
+
+    /* MENÚ DESKTOP */
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2em;
+      font-weight: 600;
+    }
+    /* MENÚ MOBILE */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 25px;
+      height: 18px;
+      cursor: pointer;
+    }
+    .hamburger span {
+      display: block;
+      height: 3px;
+      background: var(--primary-color);
+      border-radius: 3px;
+    }
+    .nav-menu {
+      display: none;
+    }
+    /* MOBILE STYLES */
+    @media (max-width: 800px) {
+      .nav-links {
+        display: none;
+      }
+      .hamburger {
+        display: flex;
+      }
+      .nav-menu {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 0;
+        height: 100%;
+        background-color: #fff;
+        overflow: hidden;
+        z-index: 9999;
+        transition: width var(--transition-speed) ease;
+        box-shadow: -2px 0 5px rgba(0,0,0,0.15);
+      }
+      .nav-menu.open {
+        width: 200px;
+      }
+      .nav-menu ul {
+        list-style: none;
+        margin-top: 80px; /* Espacio superior */
+      }
+      .nav-menu li {
+        border-bottom: 1px solid #ddd;
+      }
+      .nav-menu li a {
+        display: block;
+        padding: 1em;
+        color: var(--text-color);
+      }
+    }
+    /* MAIN */
+    main {
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 2em;
+      margin-top: 1em;
+      margin-bottom: 3em;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      animation: fadeInUp 0.8s ease-in-out;
+    }
+    h2 {
+      font-family: var(--font-plex);
+      font-size: 1.6em;
+      color: var(--primary-color);
+      margin-bottom: 1em;
+      text-align: center;
+    }
+    h3 {
+      font-family: var(--font-plex);
+      margin-top: 1em;
+      margin-bottom: 0.5em;
+      color: #444;
+      font-size: 1.1em;
+    }
+    p {
+      margin-bottom: 1em;
+    }
+    /* FOOTER */
+    footer {
+      text-align: center;
+      margin-bottom: 1em;
+      padding-top: 1em;
+      border-top: 1px solid #ddd;
+      font-size: 0.9em;
+      color: #777;
+    }
+    /* ANIMACIONES */
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    /* MULTI-IDIOMA */
+    .lang-es { display: none; }
+    .lang-en { display: none; }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <a href="index.html" class="branding">
+      <img src="assets/logo-clicknote-copy.svg" alt="Click Note Logo" />
+      <div class="brand-text">Click Note</div>
+    </a>
+  </header>
+  
+
+  <!-- MAIN -->
+  <main>
+    <h2 class="lang-es">Condiciones de Uso</h2>
+    <h2 class="lang-en">Terms of Use</h2>
+
+    <!-- 12 PUNTOS / SECCIONES -->
+    <!-- 1 -->
+    <h3 class="lang-es">1. Aceptación de los Términos</h3>
+    <p class="lang-es">
+      Al descargar, acceder o usar la aplicación <strong>Click Note</strong>, aceptas todos los términos 
+      y condiciones aquí estipulados.
+    </p>
+    <h3 class="lang-en">1. Acceptance of Terms</h3>
+    <p class="lang-en">
+      By downloading, accessing, or using the <strong>Click Note</strong> application, 
+      you agree to all the terms and conditions set forth herein.
+    </p>
+    <!-- 2 -->
+    <h3 class="lang-es">2. Descripción del Servicio</h3>
+    <p class="lang-es">
+      Click Note permite crear notas a partir de fotografías, con reconocimiento de texto por IA 
+      y acceso a un chatbot.
+    </p>
+    <h3 class="lang-en">2. Service Description</h3>
+    <p class="lang-en">
+      Click Note allows users to create notes from photographs, featuring AI text recognition 
+      and chatbot access.
+    </p>
+    <!-- 3 -->
+    <h3 class="lang-es">3. Registro de Usuario</h3>
+    <p class="lang-es">
+      Para utilizar ciertas funciones, deberás crear una cuenta y proporcionar información veraz y completa.
+    </p>
+    <h3 class="lang-en">3. User Registration</h3>
+    <p class="lang-en">
+      To access certain features, you must create an account and provide accurate and complete information.
+    </p>
+    <!-- 4 -->
+    <h3 class="lang-es">4. Uso Adecuado</h3>
+    <p class="lang-es">
+      El usuario se compromete a utilizar la aplicación de manera responsable y legal, sin infringir 
+      derechos de terceros.
+    </p>
+    <h3 class="lang-en">4. Proper Use</h3>
+    <p class="lang-en">
+      The user agrees to use the application responsibly and legally, without infringing on third-party rights.
+    </p>
+    <!-- 5 -->
+    <h3 class="lang-es">5. Propiedad Intelectual</h3>
+    <p class="lang-es">
+      Todo el contenido relacionado con Click Note está protegido por leyes de propiedad intelectual. 
+      El uso no autorizado está prohibido.
+    </p>
+    <h3 class="lang-en">5. Intellectual Property</h3>
+    <p class="lang-en">
+      All content related to Click Note is protected by intellectual property laws. 
+      Unauthorized use is prohibited.
+    </p>
+    <!-- 6 -->
+    <h3 class="lang-es">6. Limitación de Responsabilidad</h3>
+    <p class="lang-es">
+      Click Note no se hace responsable de daños que surjan por el uso de la aplicación, 
+      incluyendo errores de reconocimiento de texto.
+    </p>
+    <h3 class="lang-en">6. Limitation of Liability</h3>
+    <p class="lang-en">
+      Click Note is not liable for any damages arising from the use of the app, 
+      including text recognition errors.
+    </p>
+    <!-- 7 -->
+    <h3 class="lang-es">7. Disponibilidad del Servicio</h3>
+    <p class="lang-es">
+      No garantizamos disponibilidad continua ni ininterrumpida del servicio. 
+      Podríamos realizar mantenimiento sin previo aviso.
+    </p>
+    <h3 class="lang-en">7. Service Availability</h3>
+    <p class="lang-en">
+      We do not guarantee continuous or uninterrupted service availability. 
+      Maintenance may occur without prior notice.
+    </p>
+    <!-- 8 -->
+    <h3 class="lang-es">8. Modificaciones de los Términos</h3>
+    <p class="lang-es">
+      Podremos actualizar estas condiciones en cualquier momento, notificándote por correo electrónico 
+      o dentro de la aplicación.
+    </p>
+    <h3 class="lang-en">8. Changes to Terms</h3>
+    <p class="lang-en">
+      We may update these terms at any time, notifying you via email or within the application.
+    </p>
+    <!-- 9 -->
+    <h3 class="lang-es">9. Cuentas Inactivas</h3>
+    <p class="lang-es">
+      Nos reservamos el derecho de eliminar cuentas que permanezcan inactivas durante un período prolongado.
+    </p>
+    <h3 class="lang-en">9. Inactive Accounts</h3>
+    <p class="lang-en">
+      We reserve the right to remove accounts that remain inactive for an extended period.
+    </p>
+    <!-- 10 -->
+    <h3 class="lang-es">10. Contenido de Terceros</h3>
+    <p class="lang-es">
+      La aplicación puede enlazar a servicios externos. No somos responsables de los contenidos 
+      o prácticas de terceros.
+    </p>
+    <h3 class="lang-en">10. Third-Party Content</h3>
+    <p class="lang-en">
+      The app may link to external services. We are not responsible for the content or practices of third parties.
+    </p>
+    <!-- 11 -->
+    <h3 class="lang-es">11. Terminación del Servicio</h3>
+    <p class="lang-es">
+      Podemos suspender o terminar el acceso a la aplicación si incumples estos términos, 
+      sin responsabilidad alguna.
+    </p>
+    <h3 class="lang-en">11. Service Termination</h3>
+    <p class="lang-en">
+      We may suspend or terminate access to the app if you violate these terms, without liability.
+    </p>
+    <!-- 12 -->
+    <h3 class="lang-es">12. Ley Aplicable y Jurisdicción</h3>
+    <p class="lang-es">
+      Estas condiciones se rigen por las leyes aplicables en la jurisdicción correspondiente, 
+      sin considerar sus disposiciones sobre conflicto de leyes.
+    </p>
+    <h3 class="lang-en">12. Governing Law and Jurisdiction</h3>
+    <p class="lang-en">
+      These terms are governed by the applicable laws in the relevant jurisdiction, 
+      without regard to conflict of laws rules.
+    </p>
+
+    <!-- CONTACTO -->
+    <h3 class="lang-es">Contacto</h3>
+    <p class="lang-es">
+      Para cualquier duda, escríbenos a <strong>clicknote.team@gmail.com</strong>.
+    </p>
+    <h3 class="lang-en">Contact</h3>
+    <p class="lang-en">
+      For any questions, email us at <strong>clicknote.team@gmail.com</strong>.
+    </p>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <!-- Español -->
+    <p class="lang-es">
+      &copy; 2025 Click Note. Todos los derechos reservados. | 
+      <a href="terms.html">Términos de Uso</a> | 
+      <a href="privacy.html">Política de Privacidad</a> | 
+      Correo: <a href="mailto:clicknote.team@gmail.com">clicknote.team@gmail.com</a>
+    </p>
+  
+    <!-- Inglés -->
+    <p class="lang-en">
+      &copy; 2025 Click Note. All rights reserved. | 
+      <a href="terms.html">Terms of Use</a> | 
+      <a href="privacy.html">Privacy Policy</a> | 
+      Email: <a href="mailto:clicknote.team@gmail.com">clicknote.team@gmail.com</a>
+    </p>
+  </footer>
+  
+
+  <!-- SCRIPT -->
+  <script>
+    // Control menú hamburguesa
+    const navMenu = document.getElementById('navMenu');
+    function toggleMenu() {
+      navMenu.classList.toggle('open');
+    }
+
+    // Detección de idioma
+    (function setLanguage() {
+      let userLang = navigator.language || navigator.userLanguage;
+      userLang = userLang.substring(0, 2).toLowerCase();
+
+      if (userLang === 'es') {
+        document.querySelectorAll('.lang-es').forEach(el => el.style.display = 'block');
+        document.querySelectorAll('.lang-en').forEach(el => el.style.display = 'none');
+      } else {
+        document.querySelectorAll('.lang-en').forEach(el => el.style.display = 'block');
+        document.querySelectorAll('.lang-es').forEach(el => el.style.display = 'none');
+      }
+    })();
+  </script>
+</body>
+</html>

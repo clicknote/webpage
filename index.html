@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en"> <!-- El "lang" puede ser dinámico, pero aquí se setea como 'en' por default -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Click Note - Home</title>
+  <!-- Fuentes Google (Poppins e IBM Plex Mono) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link 
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Poppins:wght@400;600&display=swap" 
+    rel="stylesheet"
+  >
+  <style>
+    :root {
+      --primary-color: #aa3bff; /* Color principal */
+      --secondary-color: #f7f7f7;
+      --text-color: #333333;
+      --font-poppins: 'Poppins', sans-serif;
+      --font-plex: 'IBM Plex Mono', monospace;
+    }
+    * {
+      margin: 0; 
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: var(--font-poppins);
+      background-color: var(--secondary-color);
+      color: var(--text-color);
+    }
+    
+    a {
+      text-decoration: none;
+      color: var(--primary-color);
+      transition: color 0.3s;
+    }
+    a:hover {
+      color: #892de0;
+    }
+    header, nav, main, footer {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+    }
+    /* ENCABEZADO */
+    header {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    padding: 1em 0;
+    width: 100%; /* Ocupa todo el ancho */
+    max-width: 100%; /* Evita restricciones adicionales */
+    margin: 0 auto; /* Asegúrate de que esté centrado */
+    }
+
+    .branding {
+    display: flex;
+    align-items: center; /* Alinea logotipo y texto verticalmente */
+    gap: 0.5em; /* Espaciado entre logotipo y texto */
+    }
+
+    .branding img {
+    width: 40px; /* Tamaño del logotipo */
+    margin-right: 0.5em; /* Espaciado entre imagen y texto */
+    }
+
+    .branding .brand-text {
+    font-size: 1.4em;
+    font-weight: 600;
+    font-family: 'IBM Plex Mono', monospace;
+    color: #333333; /* Color del texto */
+    line-height: 1; /* Ajusta la altura de línea */
+    display: inline-block; /* Mantiene el texto en una sola línea */
+    white-space: nowrap; /* Evita divisiones de palabras */
+    }
+
+
+
+    /* MENÚ */
+    nav {
+      position: relative;
+    }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 25px;
+      height: 18px;
+      cursor: pointer;
+    }
+    .hamburger span {
+      display: block;
+      height: 3px;
+      background: var(--primary-color);
+      border-radius: 3px;
+    }
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2em;
+      font-weight: 600;
+      transition: max-height 0.4s ease;
+    }
+    .nav-links li {
+      /* Opcional: estilos de cada li */
+    }
+    /* HERO */
+    .hero {
+      background: var(--primary-color);
+      color: #ffffff;
+      text-align: center;
+      padding: 4em 1em;
+      border-radius: 10px;
+      margin-bottom: 2em;
+    }
+    .hero h1 {
+      font-size: 2.2em;
+      margin-bottom: 0.5em;
+      font-family: var(--font-plex);
+    }
+    .hero p {
+      font-size: 1.1em;
+      margin-bottom: 1.5em;
+      line-height: 1.6;
+    }
+    .hero a.hero-btn {
+      background-color: #ffffff;
+      color: var(--primary-color);
+      padding: 0.8em 1.5em;
+      border-radius: 5px;
+      font-weight: 600;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .hero a.hero-btn:hover {
+      background-color: #f2f2f2;
+      color: #892de0;
+    }
+    /* CONTENIDO */
+    main {
+      margin-bottom: 3em;
+    }
+    .section {
+      margin-bottom: 3em;
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 2em;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .section-title {
+      font-family: var(--font-plex);
+      font-size: 1.6em;
+      color: var(--primary-color);
+      margin-bottom: 1em;
+    }
+    .card-grid {
+      display: grid;
+      gap: 1.5em;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    .card {
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 1.5em;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card img {
+      width: 60px;
+      margin-bottom: 1em;
+    }
+    .card h3 {
+      font-family: var(--font-plex);
+      font-size: 1.2em;
+      margin-bottom: 0.5em;
+    }
+    .card p {
+      font-size: 0.95em;
+      line-height: 1.4;
+    }
+    .phone-images {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1em;
+      justify-content: center;
+      margin-top: 2em;
+    }
+    .phone-images img {
+      width: 180px;
+      border-radius: 8px;
+      transition: transform 0.3s;
+    }
+    .phone-images img:hover {
+      transform: scale(1.03);
+    }
+    /* FOOTER */
+    footer {
+      text-align: center;
+      margin-bottom: 1em;
+      padding-top: 1em;
+      border-top: 1px solid #ddd;
+      font-size: 0.9em;
+      color: #777;
+    }
+    /* RESPONSIVE */
+    @media (max-width: 800px) {
+      .hamburger {
+        display: flex;
+      }
+      .nav-links {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        flex-direction: column; /* Apiladas en columna */
+        background-color: #fff;
+        width: 200px;
+        max-height: 0; /* Cerrado por defecto */
+        overflow: hidden;
+        border-left: 2px solid var(--primary-color);
+        border-bottom: 2px solid var(--primary-color);
+        border-radius: 0 0 0 8px;
+      }
+      .nav-links.open {
+        max-height: 400px; /* Se expande al hacer click */
+      }
+      .nav-links li {
+        border-top: 1px solid #eee;
+        padding: 1em;
+      }
+    }
+
+    /* CLASES PARA MULTI-IDIOMA */
+    .lang-es { display: none; }
+    .lang-en { display: none; }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="branding">
+      <img src="assets/logo-clicknote-copy.svg" alt="Click Note Logo" />
+      <div class="brand-text">Click Note</div>
+    </div>
+  </header>
+  
+
+  <!-- SECCIÓN HERO -->
+  <section class="hero">
+    <!-- ESPAÑOL -->
+    <div class="lang-es">
+      <h1>Click Note</h1>
+      <p>
+        <strong>¡Bienvenido a tu nueva forma de crear notas!</strong><br />
+        Captura una foto y nuestro sistema la convertirá en texto editable, 
+        además de permitirte hacerle preguntas a un <strong>chatbot</strong> integrado.
+      </p>
+      <a class="hero-btn" href="#features">Conoce Más</a>
+    </div>
+    <!-- INGLÉS -->
+    <div class="lang-en">
+      <h1>Click Note</h1>
+      <p>
+        <strong>Welcome to your new way of taking notes!</strong><br />
+        Snap a photo and our system will turn it into editable text, plus you can ask questions
+        to an integrated <strong>chatbot</strong>.
+      </p>
+      <a class="hero-btn" href="#features">Learn More</a>
+    </div>
+  </section>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main>
+    <!-- Sección de características -->
+    <section class="section" id="features">
+      <!-- ESPAÑOL -->
+      <h2 class="section-title lang-es">Características</h2>
+      <!-- INGLÉS -->
+      <h2 class="section-title lang-en">Features</h2>
+
+      <div class="card-grid">
+        <!-- Tarjeta 1 -->
+        <div class="card">
+          <img src="assets/camera-viewfinder.svg" alt="AI Icon">
+          <h3 class="lang-es">Reconocimiento de Fotos</h3>
+          <p class="lang-es">
+            Nuestro sistema de IA procesa tus fotografías y genera texto automáticamente para que 
+            puedas trabajar con la información de forma inmediata.
+          </p>
+          <h3 class="lang-en">Photo Recognition</h3>
+          <p class="lang-en">
+            Our AI system processes your photos and automatically generates text so 
+            you can work with the information right away.
+          </p>
+        </div>
+        <!-- Tarjeta 2 -->
+        <div class="card">
+          <img src="assets/text-box-edit.svg" alt="Edit Icon">
+          <h3 class="lang-es">Edición Flexible</h3>
+          <p class="lang-es">
+            Agrega o elimina detalles importantes de la nota generada. 
+            Ajusta la información según tus necesidades.
+          </p>
+          <h3 class="lang-en">Flexible Editing</h3>
+          <p class="lang-en">
+            Add or remove important details from the generated note. 
+            Adjust the information as needed.
+          </p>
+        </div>
+        <!-- Tarjeta 3 -->
+        <div class="card">
+          <img src="assets/chatbot-speech-bubble.svg" alt="ChatBot Icon">
+          <h3 class="lang-es">Chatbot Integrado</h3>
+          <p class="lang-es">
+            Haz preguntas sobre la información detectada en las fotos. 
+            Nuestra IA te ayudará a encontrar respuestas de manera eficiente.
+          </p>
+          <h3 class="lang-en">Integrated Chatbot</h3>
+          <p class="lang-en">
+            Ask questions about the information detected in your photos. 
+            Our AI helps you find answers efficiently.
+          </p>
+        </div>
+        <!-- Tarjeta 4 -->
+        <div class="card">
+          <img src="assets/share.svg" alt="Share Icon">
+          <h3 class="lang-es">Comparte y Colabora</h3>
+          <p class="lang-es">
+            Comparte tus notas con otros usuarios o sincronízalas en la nube 
+            para acceder a ellas desde cualquier lugar.
+          </p>
+          <h3 class="lang-en">Share & Collaborate</h3>
+          <p class="lang-en">
+            Share your notes with others or sync them to the cloud 
+            so you can access them from anywhere.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección de Vista Previa -->
+    <section class="section">
+      <!-- ESPAÑOL -->
+      <h2 class="section-title lang-es">Vista Previa</h2>
+      <p class="lang-es" style="text-align:center;">
+        A continuación, puedes ver algunas capturas de cómo se ve la app en un dispositivo móvil.
+      </p>
+      <!-- INGLÉS -->
+      <h2 class="section-title lang-en">Preview</h2>
+      <p class="lang-en" style="text-align:center;">
+        Below are some screenshots of how the app appears on a mobile device.
+      </p>
+
+      <div class="phone-images">
+        <img src="assets/clicknote-dark.png" alt="App Preview 1">
+        <img src="assets/clicknote-light.png" alt="App Preview 2">
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <!-- Español -->
+    <p class="lang-es">
+      &copy; 2025 Click Note. Todos los derechos reservados. | 
+      <a href="terms.html">Términos de Uso</a> | 
+      <a href="privacy.html">Política de Privacidad</a> | 
+      Correo: <a href="mailto:clicknote.team@gmail.com">clicknote.team@gmail.com</a>
+    </p>
+  
+    <!-- Inglés -->
+    <p class="lang-en">
+      &copy; 2025 Click Note. All rights reserved. | 
+      <a href="terms.html">Terms of Use</a> | 
+      <a href="privacy.html">Privacy Policy</a> | 
+      Email: <a href="mailto:clicknote.team@gmail.com">clicknote.team@gmail.com</a>
+    </p>
+  </footer>
+  
+
+  <!-- SCRIPTS -->
+  <script>
+    // Menu hamburguesa
+    const navLinks = document.getElementById('nav-links');
+    function toggleMenu() {
+      navLinks.classList.toggle('open');
+    }
+
+    // Detección de idioma
+    (function setLanguage() {
+      // Obtenemos el idioma del navegador (por ejemplo "es", "en", "fr"...)
+      let userLang = navigator.language || navigator.userLanguage;
+      // Tomamos solo los 2 primeros caracteres (ej: "es", "en")
+      userLang = userLang.substring(0, 2).toLowerCase();
+
+      if (userLang === 'es') {
+        document.querySelectorAll('.lang-es').forEach(el => el.style.display = 'block');
+        document.querySelectorAll('.lang-en').forEach(el => el.style.display = 'none');
+      } else {
+        document.querySelectorAll('.lang-en').forEach(el => el.style.display = 'block');
+        document.querySelectorAll('.lang-es').forEach(el => el.style.display = 'none');
+      }
+    })();
+  </script>
+</body>
+</html>
